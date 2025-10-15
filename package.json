@@ -1,0 +1,57 @@
+{
+	"name": "react-line-clamp",
+	"version": "0.1.0-beta.1",
+	"description": "A React component for clamping any content to a specified number of lines with expand/collapse functionality",
+	"type": "module",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		}
+	},
+	"files": [
+		"dist",
+		"README.md",
+		"LICENSE"
+	],
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsc --watch",
+		"clean": "rm -rf dist",
+		"prepublishOnly": "npm run clean && npm run build",
+		"check:js": "./node_modules/.bin/biome check . --fix"
+	},
+	"keywords": [
+		"react",
+		"line-clamp",
+		"text-clamp",
+		"text-truncate",
+		"ellipsis",
+		"read-more",
+		"show-more",
+		"typescript"
+	],
+	"author": "Your Name",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yourusername/react-line-clamp.git"
+	},
+	"bugs": {
+		"url": "https://github.com/yourusername/react-line-clamp/issues"
+	},
+	"homepage": "https://github.com/yourusername/react-line-clamp#readme",
+	"peerDependencies": {
+		"react": ">=16.8.0",
+		"react-dom": ">=16.8.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.2.6",
+		"@types/react": "^18.2.37",
+		"@types/react-dom": "^18.2.15",
+		"typescript": "^5.2.2"
+	}
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Line Clamp Test</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef, useCallback } = React;
+
+        // Simplified version for testing
+        const LineClamp = ({ children, lines = 3 }) => {
+            const [isExpanded, setIsExpanded] = useState(false);
+            const [isClamped, setIsClamped] = useState(false);
+            const textRef = useRef(null);
+
+            const checkIfClamped = useCallback(() => {
+                if (!textRef.current) return;
+
+                // Modern approach: compare scrollHeight with clientHeight
+                const element = textRef.current;
+                setIsClamped(element.scrollHeight > element.clientHeight);
+            }, []);            useEffect(() => {
+                checkIfClamped();
+                window.addEventListener('resize', checkIfClamped);
+                return () => window.removeEventListener('resize', checkIfClamped);
+            }, [checkIfClamped, children]);
+
+            const clampedStyle = {
+                display: '-webkit-box',
+                WebkitLineClamp: lines,
+                overflow: 'hidden',
+                wordBreak: 'break-word',
+                lineHeight: '1.5'
+            };
+
+            // Apply webkit-box-orient through useEffect to avoid deprecated property warnings
+            useEffect(() => {
+                if (textRef.current && !isExpanded) {
+                    textRef.current.style.webkitBoxOrient = 'vertical';
+                }
+            }, [isExpanded]);
+
+            const expandedStyle = {
+                wordBreak: 'break-word',
+                lineHeight: '1.5'
+            };
+
+            return (
+                <div style={{ maxWidth: '400px', margin: '20px' }}>
+                    <div
+                        ref={textRef}
+                        style={isExpanded ? expandedStyle : clampedStyle}
+                    >
+                        {children}
+                    </div>
+                    {isClamped && (
+                        <button
+                            onClick={() => setIsExpanded(!isExpanded)}
+                            style={{
+                                background: 'none',
+                                border: 'none',
+                                color: '#007bff',
+                                cursor: 'pointer',
+                                textDecoration: 'underline',
+                                marginTop: '4px'
+                            }}
+                        >
+                            {isExpanded ? 'Show less' : 'Show more'}
+                        </button>
+                    )}
+                </div>
+            );
+        };
+
+        const App = () => {
+            return (
+                <div>
+                    <h1>React Line Clamp Test (No Hidden Element)</h1>
+
+                    <h3>Text Content:</h3>
+                    <LineClamp lines={3}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                        deserunt mollit anim id est laborum.
+                    </LineClamp>
+
+                    <h3>Rich Content:</h3>
+                    <LineClamp lines={2}>
+                        <p><strong>Rich content support!</strong> This component now supports complex markup.</p>
+                        <p>You can include <em>emphasis</em>, <a href="#" style={{color: '#007bff'}}>links</a>, and other elements.</p>
+                        <p>Perfect for blog previews, product descriptions, and more complex layouts with multiple paragraphs.</p>
+                    </LineClamp>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
