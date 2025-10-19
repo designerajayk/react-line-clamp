@@ -44,9 +44,6 @@ jobs:
             echo "tag=latest" >> $GITHUB_OUTPUT
           fi
 
-      - name: Update package version
-        run: npm version --no-git-tag-version ${{ steps.tag.outputs.tag }}
-
       - name: Publish to NPM
         run: npm publish --tag ${{ steps.npm_tag.outputs.tag }}
         env:
