@@ -1,6 +1,6 @@
 {
 	"name": "react-truncate-line-clamp",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "A React component for clamping any content to a specified number of lines with expand/collapse functionality",
 	"type": "module",
 	"main": "dist/index.js",
