@@ -1,5 +1,5 @@
 {
-	"name": "react-line-clamp",
+	"name": "react-truncate-line-clamp",
 	"version": "0.1.1",
 	"description": "A React component for clamping any content to a specified number of lines with expand/collapse functionality",
 	"type": "module",
@@ -38,12 +38,12 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/yourusername/react-line-clamp.git"
+		"url": "https://github.com/yourusername/react-truncate-line-clamp.git"
 	},
 	"bugs": {
-		"url": "https://github.com/yourusername/react-line-clamp/issues"
+		"url": "https://github.com/yourusername/react-truncate-line-clamp/issues"
 	},
-	"homepage": "https://github.com/yourusername/react-line-clamp#readme",
+	"homepage": "https://github.com/yourusername/react-truncate-line-clamp#readme",
 	"peerDependencies": {
 		"react": ">=16.8.0",
 		"react-dom": ">=16.8.0"

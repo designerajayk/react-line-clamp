@@ -16,13 +16,13 @@ A flexible and performant React component for clamping content to a specified nu
 ## Installation
 
 ```bash
-npm install react-line-clamp
+npm install react-truncate-line-clamp
 ```
 
 or
 
 ```bash
-yarn add react-line-clamp
+yarn add react-truncate-line-clamp
 ```
 
 ## Usage
@@ -30,7 +30,7 @@ yarn add react-line-clamp
 ### Basic Example
 
 ```tsx
-import LineClamp from 'react-line-clamp';
+import LineClamp from 'react-truncate-line-clamp';
 
 function App() {
   return (
@@ -92,7 +92,7 @@ function App() {
 
 ```tsx
 import { useState } from 'react';
-import LineClamp from 'react-line-clamp';
+import LineClamp from 'react-truncate-line-clamp';
 
 function ControlledExample() {
   const [expanded, setExpanded] = useState(false);

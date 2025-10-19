@@ -49,7 +49,7 @@
 ## 📦 Package Structure
 
 ```
-react-line-clamp/
+react-truncate-line-clamp/
 ├── dist/ (build output)
 │   ├── index.js
 │   ├── index.d.ts
@@ -105,11 +105,11 @@ npm publish --tag beta  # or --tag alpha, or omit for latest
 ### To use the package:
 
 ```bash
-npm install react-line-clamp
+npm install react-truncate-line-clamp
 ```
 
 ```tsx
-import LineClamp from 'react-line-clamp';
+import LineClamp from 'react-truncate-line-clamp';
 
 function App() {
   return (
