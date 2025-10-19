@@ -38,12 +38,12 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/yourusername/react-truncate-line-clamp.git"
+		"url": "https://github.com/designerajayk/react-truncate-line-clamp.git"
 	},
 	"bugs": {
-		"url": "https://github.com/yourusername/react-truncate-line-clamp/issues"
+		"url": "https://github.com/designerajayk/react-truncate-line-clamp/issues"
 	},
-	"homepage": "https://github.com/yourusername/react-truncate-line-clamp#readme",
+	"homepage": "https://github.com/designerajayk/react-truncate-line-clamp#readme",
 	"peerDependencies": {
 		"react": ">=16.8.0",
 		"react-dom": ">=16.8.0"
